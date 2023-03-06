@@ -31,7 +31,6 @@ blueprint:
       description: Automation only runs after this time.
       selector:
         time:
-
     schedule_stop:
       name: Schedule stop time
       description: Automation does not run after this time.
@@ -73,7 +72,7 @@ blueprint:
       default: false
       selector:
         boolean:
-
+  
 variables:
   mon: !input monday
   tue: !input tuesday
@@ -98,7 +97,6 @@ condition:
   - condition: time
     after: !input schedule_start
     before: !input schedule_stop
-
   - condition: template
     value_template: '{{ days[now().weekday()] }}'
 action:
