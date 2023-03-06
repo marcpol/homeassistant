@@ -26,6 +26,12 @@ blueprint:
           min: 0
           max: 3600
           unit_of_measurement: seconds
+          
+    # If motion is detected within the delay,
+# we restart the script.
+mode: restart
+max_exceeded: silent
+
     schedule_start:
       name: Schedule start time
       description: Automation only runs after this time.
@@ -82,11 +88,6 @@ variables:
   sat: !input saturday
   sun: !input sunday
   days: [mon, tue, wed, thu, fri, sat, sun]
-
-# If motion is detected within the delay,
-# we restart the script.
-mode: restart
-max_exceeded: silent
 
 trigger:
   platform: state
