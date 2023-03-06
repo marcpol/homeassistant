@@ -20,7 +20,7 @@ blueprint:
     no_motion_wait:
       name: Wait time
       description: Time to leave the light on after last motion is detected.
-      default: 120
+      default: 60
       selector:
         number:
           min: 0
