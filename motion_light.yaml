@@ -94,6 +94,13 @@ trigger:
   entity_id: !input motion_entity
   from: "off"
   to: "on"
+condition:
+  - condition: time
+    after: !input schedule_start
+    before: !input schedule_stop
+
+  - condition: template
+    value_template: '{{ days[now().weekday()] }}'
 action:
   - alias: "Turn on the light"
     service: light.turn_on
