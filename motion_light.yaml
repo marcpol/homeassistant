@@ -11,64 +11,6 @@ blueprint:
         entity:
           domain: binary_sensor
           device_class: motion
-    schedule_start:
-      name: Schedule start time
-      description: Automation only runs after this time.
-      selector:
-        time:
-
-    schedule_stop:
-      name: Schedule stop time
-      description: Automation does not run after this time.
-      selector:
-        time:
-
-    monday:
-      name: Monday
-      default: false
-      selector:
-        boolean:
-    tuesday:
-      name: Tuesday
-      default: false
-      selector:
-        boolean:
-    wednesday:
-      name: Wednesday
-      default: false
-      selector:
-        boolean:
-    thursday:
-      name: Thursday
-      default: false
-      selector:
-        boolean:
-    friday:
-      name: Friday
-      default: false
-      selector:
-        boolean:
-    saturday:
-      name: Saturday
-      default: false
-      selector:
-        boolean:
-    sunday:
-      name: Sunday
-      default: false
-      selector:
-        boolean:
-
-variables:
-  mon: !input monday
-  tue: !input tuesday
-  wed: !input wednesday
-  thu: !input thursday
-  fri: !input friday
-  sat: !input saturday
-  sun: !input sunday
-  days: [mon, tue, wed, thu, fri, sat, sun]
-
     light_target:
       name: Light
       selector:
