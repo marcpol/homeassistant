@@ -5,6 +5,27 @@ blueprint:
   #source_url: https://github.com/home-assistant/core/blob/dev/homeassistant/components/automation/blueprints/motion_light.yaml
   author: Home Assistant
   input:
+    motion_entity:
+      name: Motion Sensor
+      selector:
+        entity:
+          domain: binary_sensor
+          device_class: motion
+    light_target:
+      name: Light
+      selector:
+        target:
+          entity:
+            domain: light
+    no_motion_wait:
+      name: Wait time
+      description: Time to leave the light on after last motion is detected.
+      default: 60
+      selector:
+        number:
+          min: 0
+          max: 3600
+          unit_of_measurement: seconds
     schedule_start:
       name: Schedule start time
       description: Automation only runs after this time.
@@ -61,28 +82,6 @@ variables:
   sat: !input saturday
   sun: !input sunday
   days: [mon, tue, wed, thu, fri, sat, sun]
-  
-    motion_entity:
-      name: Motion Sensor
-      selector:
-        entity:
-          domain: binary_sensor
-          device_class: motion
-    light_target:
-      name: Light
-      selector:
-        target:
-          entity:
-            domain: light
-    no_motion_wait:
-      name: Wait time
-      description: Time to leave the light on after last motion is detected.
-      default: 60
-      selector:
-        number:
-          min: 0
-          max: 3600
-          unit_of_measurement: seconds
 
 # If motion is detected within the delay,
 # we restart the script.
